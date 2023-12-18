@@ -41,7 +41,7 @@ export default function App() {
         </Pressable>
         <View style={{ display: "flex", flexDirection: "row" }}>
           <Text>Dont have an account? </Text>
-          <Text style={{ color: "red" }}>Signup</Text>
+          <Text style={{ color: "#CD5C5C" }}>Signup</Text>
         </View>
       </View>
     </View>
