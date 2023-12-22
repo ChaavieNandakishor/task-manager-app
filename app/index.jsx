@@ -1,5 +1,5 @@
 import React from "react";
-import welcomeImage from "../../../assets/images/welcome.png";
+import welcomeImage from "../assets/images/welcome.png";
 import { StatusBar } from "expo-status-bar";
 import {
   Button,
@@ -10,6 +10,7 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
+import {Link,router} from 'expo-router'
 
 export default function Welcome() {
   return (
@@ -32,7 +33,7 @@ export default function Welcome() {
           paddingBottom: 90,
         }}
       >
-        <Pressable
+        <Pressable 
           style={{
             width: "80%",
             backgroundColor: "red",
@@ -40,7 +41,7 @@ export default function Welcome() {
             overflow: "hidden",
           }}
         >
-          <Button color="#CD5C5C" title="Sign up" />
+          <Button onPress={()=>router.push('/signin/1')} color="#CD5C5C" title="Sign up" />
         </Pressable>
         <View style={{ display: "flex", flexDirection: "row" }}>
           <Text>Dont have an account? </Text>

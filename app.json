@@ -2,6 +2,7 @@
   "expo": {
     "name": "task_manager",
     "slug": "task_manager",
+    "scheme":"task_manager expo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -31,6 +32,9 @@
       "eas": {
         "projectId": "04df2dd9-3791-4f32-9832-d37497b00584"
       }
-    }
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }

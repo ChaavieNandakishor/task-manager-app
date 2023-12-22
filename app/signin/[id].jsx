@@ -7,8 +7,10 @@ import {
   TextInput,
   View,
 } from "react-native";
+import { Link } from "expo-router";
 
 export default function Signin() {
+  const showToast = () => {};
   return (
     <View style={styles.container}>
       <View
@@ -41,9 +43,12 @@ export default function Signin() {
             alignItems: "center",
           }}
         >
-          <Pressable style={styles.pressable}>
-            <Button color="#CD5C5C" title="Sign up" />
-          </Pressable>
+          {/* <Link */}
+          <Link href="/welcome" asChild>
+            <Pressable style={styles.pressable} onPress={showToast}>
+              <Button color="#CD5C5C" title="Sign up" />
+            </Pressable>
+          </Link>
         </View>
         <View
           style={{
