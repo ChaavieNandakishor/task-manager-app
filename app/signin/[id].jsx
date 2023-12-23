@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Button,
+  KeyboardAvoidingView,
   Pressable,
   StyleSheet,
   Text,
@@ -12,14 +13,14 @@ import { Link } from "expo-router";
 export default function Signin() {
   const showToast = () => {};
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <View
         style={{
           flex: 1,
         }}
       >
         <View style={{ flex: 1, justifyContent: "center" }}>
-          <Text style={{ fontSize: 30, paddingLeft: 30, paddingTop: 100 }}>
+          <Text style={{ fontSize: 30, paddingLeft: 30, paddingTop: 10 }}>
             Sign In
           </Text>
           <Text style={{ fontSize: 14, paddingLeft: 30 }}>
@@ -57,7 +58,7 @@ export default function Signin() {
         >
           <View
             style={{
-              marginTop: 150,
+              marginTop: 100,
               flexDirection: "row",
               justifyContent: "center",
             }}
@@ -67,7 +68,7 @@ export default function Signin() {
           </View>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
