@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   KeyboardAvoidingView,
@@ -9,9 +9,30 @@ import {
   View,
 } from "react-native";
 import { Link } from "expo-router";
+import axios from "axios";
 
 export default function Signin() {
-  const showToast = () => {};
+  const [formData, setFormData] = useState({});
+
+  const handleInputChange = (name, text) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: text,
+    }));
+  };
+  console.log(formData);
+  const handleSubmit = async () => {
+    console.log("fn running")
+    try {
+      const response = await axios.post(
+        "http://localhdfdost:3000/user/login",
+        formData
+      );
+      console.log("response =>>",response);
+    } catch (err) {
+      console.log(err)
+    }
+  };
   return (
     <KeyboardAvoidingView style={styles.container}>
       <View
@@ -28,8 +49,16 @@ export default function Signin() {
           </Text>
         </View>
         <View style={styles.textInputContainer}>
-          <TextInput style={styles.textInput} />
-          <TextInput style={styles.textInput} />
+          <TextInput
+            placeholder="email"
+            onChangeText={(text) => handleInputChange("email", text)}
+            style={styles.textInput}
+          />
+          <TextInput
+            placeholder="password"
+            onChangeText={(text) => handleInputChange("password", text)}
+            style={styles.textInput}
+          />
         </View>
       </View>
       <View
@@ -46,8 +75,8 @@ export default function Signin() {
         >
           {/* <Link */}
           <Link href="/welcome" asChild>
-            <Pressable style={styles.pressable} onPress={showToast}>
-              <Button color="#CD5C5C" title="Sign up" />
+            <Pressable style={styles.pressable}>
+              <Button onPress={handleSubmit} color="#CD5C5C" title="login" />
             </Pressable>
           </Link>
         </View>
@@ -82,6 +111,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   textInput: {
+    paddingLeft: 10,
+    paddingRight: 10,
     borderWidth: 2,
     borderColor: "#CD5C5C",
     borderRadius: 10,
