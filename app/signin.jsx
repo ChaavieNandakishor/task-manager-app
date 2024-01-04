@@ -25,10 +25,10 @@ export default function Signin() {
     console.log("fn running")
     try {
       const response = await axios.post(
-        "http://localhdfdost:3000/user/login",
+        "http://192.168.1.6:3000/user/login",
         formData
       );
-      console.log("response =>>",response);
+      console.log("response =>>",response.data);
     } catch (err) {
       console.log(err)
     }
