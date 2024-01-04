@@ -8,7 +8,7 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { Link } from "expo-router";
+import { Link,router } from "expo-router";
 import axios from "axios";
 
 export default function Signin() {
@@ -27,7 +27,8 @@ export default function Signin() {
       const response = await axios.post(
         "http://192.168.1.6:3000/user/login",
         formData
-      );
+        );
+        router.push('/dashboard/dashboard')
       console.log("response =>>",response.data);
     } catch (err) {
       console.log(err)

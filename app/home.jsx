@@ -10,12 +10,11 @@ import {
   TouchableHighlight,
   View,
 } from "react-native";
-import {Link,router} from 'expo-router'
+import { Link, router } from "expo-router";
 
 export default function Home() {
   return (
     <View style={styles.container}>
-      
       <View style={{ paddingTop: 100, alignItems: "center" }}>
         <Text style={{ fontSize: 28, color: "#CD5C5C" }}>
           Your tasks, your plan
@@ -33,7 +32,7 @@ export default function Home() {
           paddingBottom: 90,
         }}
       >
-        <Pressable 
+        <Pressable
           style={{
             width: "80%",
             backgroundColor: "red",
@@ -41,11 +40,17 @@ export default function Home() {
             overflow: "hidden",
           }}
         >
-          <Button onPress={()=>router.push('/signin')} color="#CD5C5C" title="Sign up" />
+          <Button
+            onPress={() => router.push("/signin")}
+            color="#CD5C5C"
+            title="Sign in"
+          />
         </Pressable>
         <View style={{ display: "flex", flexDirection: "row" }}>
           <Text>Dont have an account? </Text>
-          <Text style={{ color: "#CD5C5C" }}>Signup</Text>
+          <Pressable onPress={() => router.push("/register")}>
+            <Text style={{ color: "#CD5C5C" }}>Signup</Text>
+          </Pressable>
         </View>
       </View>
     </View>
