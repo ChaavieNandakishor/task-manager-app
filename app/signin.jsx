@@ -8,8 +8,9 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { Link,router } from "expo-router";
+import { Link, router } from "expo-router";
 import axios from "axios";
+import TextField from "../src/components/TextField";
 
 export default function Signin() {
   const [formData, setFormData] = useState({});
@@ -22,16 +23,16 @@ export default function Signin() {
   };
   console.log(formData);
   const handleSubmit = async () => {
-    console.log("fn running")
+    console.log("fn running");
     try {
       const response = await axios.post(
         "http://192.168.1.6:3000/user/login",
         formData
-        );
-        router.push('/dashboard/dashboard')
-      console.log("response =>>",response.data);
+      );
+      router.push("/dashboard/dashboard");
+      console.log("response =>>", response.data);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
   return (
@@ -50,15 +51,13 @@ export default function Signin() {
           </Text>
         </View>
         <View style={styles.textInputContainer}>
-          <TextInput
-            placeholder="email"
+          <TextField
             onChangeText={(text) => handleInputChange("email", text)}
-            style={styles.textInput}
+            placeholder="Email"
           />
-          <TextInput
-            placeholder="password"
+          <TextField
             onChangeText={(text) => handleInputChange("password", text)}
-            style={styles.textInput}
+            placeholder="Password"
           />
         </View>
       </View>
@@ -111,15 +110,7 @@ const styles = StyleSheet.create({
     borderColor: "blue",
     borderRadius: 10,
   },
-  textInput: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    borderWidth: 2,
-    borderColor: "#CD5C5C",
-    borderRadius: 10,
-    height: 47,
-    width: "85%",
-  },
+
   pressable: {
     width: "85%",
     backgroundColor: "red",
